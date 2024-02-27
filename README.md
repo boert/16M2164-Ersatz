@@ -1,71 +1,69 @@
-# Ersatz für 16M2164
+# Ersatz für Hybridschaltkreis 16M2164 (1 MBit dynamischer RAM)
 
-## Situation
-Der Hybridschaltkreis 16M2164 von KWH (Keramische Werke Hermsdorf) scheint nur in sehr geringen Stückzahlen hergestellt worden zu sein. Er enthält 16 mal das Die (ein Stück vom Halbleiterwafer) des Schaltkreises U2164 sowie einige Stützkondensatoren auf einem Keramiksubstrat.
-Der U2164 ist ein dynamischer RAM mit 64kBit.
-In Summe enthält der 16M2164 ein Megabit bzw. 128 kByte Speicher.
+Der Hybridschaltkreis 16M2164 von KWH (Keramische Werke Hermsdorf) scheint nur in sehr geringen Stückzahlen hergestellt worden zu sein. Er enthält 16 mal das Die (ein Stück vom Halbleiterwafer) des Schaltkreises U2164 sowie einige Stützkondensatoren auf einem Keramiksubstrat.  
+Der U2164 ist ein dynamischer RAM mit 64kBit.  
+In Summe enthält der 16M2164 ein MegaBit bzw. 128 kByte Speicher.
 
-Zum Einzigen - mir bekannten Einsatz - kommt der Schaltkreis 16M2164 im Modul M036 für den KC85 aus Mühlhausen [^1]. 
-Da einige Leiterplatte für dieses Modul im Umlauf sind, besteht seit geraumer Zeit der Wunsch einen Ersatz für den 16M2164 zu schaffen.
+Zum Einzigen - mir bekannten Einsatz - kommt der Schaltkreis 16M2164 im Speichermodul M036 für den KC85 aus Mühlhausen [^1].  
+Um die unbestückten Leiterplatte, die für dieses Modul im Umlauf sind, nutzen zu können, benötigt man einen Ersatz für den 16M2164.
 
-Es gibt seit einigen Jahren eine Schaltkreisersatzplatine, die mit vier dRAMs in der Konfiguration 64k x 4 auskommt [^2].
+Von U.Zander stammt die urspüngliche Idee einer Schaltkreisersatzplatine, die mit vier dRAMs in der Konfiguration 64k x 4 auskommt [^2].
+Diese Lösung funktioniert leider nicht perfekt.
 
----
-## dynamische Speicher
+> [!Note]
+> ### dynamischer Speicher
+> Bei dynamischen Speichern wird die Information als Ladung in Kondensatoren abgebildet. Durch Leckströme verliert sich diese Ladung mit der Zeit und muß daher regelmäßig aufgefrischt werden (Refresh). Dies geschiet u.a. beim Aktivieren des /RAS-Signals. Der Hersteller gibt dabei an, in welchem Zeitraum jede ROW-Adresse einmal aktiviert werden muß. Normalerweise wird die angelegte ROW-Adresse vom Speichercontroller entsprechend hochgezählt. Bei einem geschickt adressierten Bildwiederholspeicher könnte man auf den Refresh verzichten, da dort durch regelmäßige Lesezugriffe die Information beim Lesen aufgefrischt wird.
 
-Bei dynamischen Speichern wird die Information als Ladung in Kondensatoren abgebildet. Durch Leckströme verliert sich diese Ladung mit der Zeit und muß daher regelmäßig aufgefrischt werden (Refresh). Dies geschiet u.a. beim Aktivieren des /RAS-Signals. Der Hersteller gibt dabei an, in welchem Zeitraum jede ROW-Adresse einmal aktiviert werden muß. Normalerweise wird die angelegte ROW-Adresse vom Speichercontroller entsprechend hochgezählt. Bei einem geschickt adressierten Bildwiederholspeicher könnte man auf den Refresh verzichten, da dort durch regelmäßige Lesezugriffe die Information beim Lesen aufgefrischt wird.
----
+In der folgenden Tabelle sind die Refreshzyklen eingier dRAM-Hersteller aufgeführt:
 
----
-## dRAM-Größen und Refresh
+Hersteller  | Speicher-IC | Speichergröße | Refreshzyklen | Refreshzeit | Gehäuse
+----------  | ----------- | ------------: | ------------: | ----------: | -------
+&nbsp;      | &nbsp;      | _x1 Bit dRAMs_ 
+Mostek      | MK4096      |   4k x 1      |   64          |  2 ms       | DIP16
+Mostek      | MK4116      |  16k x 1      |  128          |  2 ms       | DIP16
+NEC         | µPD4164     |  64k x 1      |  128          |  2 ms       | DIP16
+Mostek      | MK4564      |  64k x 1      |  128          |  2 ms       | DIP16, PLCC18
+Mostek      | MK4164      |  64k x 1      |  256          |  4 ms       | DIP16
+Siemens     | HYB4164     |  64k x 1      |  256          |  4 ms       | DIP16
+Mostek      | MK41256     | 256k x 1      |  256          |  4 ms       | DIP16, PLCC18
+Siemens     | HYB51100    |   1M x 1      |  512          |  8 ms       | SOJ26
+&nbsp;      | &nbsp;      | _x4 Bit dRAMs_ 
+TI          | TMS4416     |  16k x 4      |  256          |  4 ms       | DIP18, PLCC18
+TI          | SMJ4464     |  64k x 4      |  256          |  4 ms       | DIP18, PLCC18
+NEC         | µPD41464    |  64k x 4      |  256          |  4 ms       | DIP18, PLCC18
+TI          | SMJ4464     |  64k x 4      |  256          |  4 ms       | DIP18, PLCC18
+Mitsubishi  | M5M4464A    |  64k x 4      |  256          |  4 ms       | DIP18, PLCC18, ZIP20
+Samsung     | KM41464A    |  64k x 4      |  256          |  4 ms       | DIP18, PLCC18, ZIP20
+Siemens     | HYB514256   | 256k x 4      |  512          |  8 ms       | DIP20, SOJ26/20
+NEC         | µPD424400   |   1M x 4      | 1024          | 16 ms       | TSOP26, SOJ26/20
 
-Speicher-IC | Speichergröße | Refreshzyklen | Refreshzeit | Gehäuse
------------ | ------------: | ------------: | ----------: | -------
-MK4096      |   4k x 1      |   64          |  2 ms       | DIP16
-MK4116      |  16k x 1      |  128          |  2 ms       | DIP16
-µPD4164     |  64k x 1      |  128          |  2 ms       | DIP16
-MK4564      |  64k x 1      |  128          |  2 ms       | DIP16, PLCC18
-MK4164      |  64k x 1      |  256          |  4 ms       | DIP16
-HYB4164     |  64k x 1      |  256          |  4 ms       | DIP16
-MK41256     | 256k x 1      |  256          |  4 ms       | DIP16, PLCC18
-HYB51100    |   1M x 1      |  512          |  8 ms       | SOJ26
-4416        |  16k x 4      |  256          |  4 ms       | DIP18, PLCC18
-4464        |  64k x 4      |  256          |  4 ms       | DIP18, PLCC18
-µPD41464    |  64k x 4      |  256          |  4 ms       | DIP18, PLCC18
-SMJ4464     |  64k x 4      |  256          |  4 ms       | DIP18, PLCC18
-M5M4464A    |  64k x 4      |  256          |  4 ms       | DIP18, PLCC18, ZIP20
-KM41464A    |  64k x 4      |  256          |  4 ms       | DIP18, PLCC18, ZIP20
-HYB514256   | 256k x 4      |  512          |  8 ms       | DIP20, SOJ26/20
-µPD424400   |   1M x 4      | 1024          | 16 ms       | TSOP26, SOJ26/20
-
----
-
-Der Nachteil der bestehenden Variante: sie funktioniert leider nicht richtig.
-Die U880/Z80-CPU enthält einen 7 Bit Refreshzähler, der z.B. für die Bausteine mit 64 oder 128 Refreshzyklen ausreichend ist.
 Bei den hier verwendeten Speicher-IC der Größe 64k x 4 Bit wird ein 8 Bit Zähler benötigt, der bis 256 Refreshzyklen abdeckt.
+Die U880/Z80-CPU enthält nur einen 7 Bit Refreshzähler, der z.B. für die Bausteine mit 64 oder 128 Refreshzyklen ausreichend ist.
 Damit erhält die obere Hälfte des Speichers keinen definierten Refresh und verliert mit der Zeit ihren Inhalt.
 
-Im Folgenden sind drei Varianten zur Lösung der Problematik aufgezeigt:
+Im Folgenden sind drei Lösungswege aufgezeigt:
 
 ## Variante R: Refresh
-Man könnte den Refreshzähler erweitern. 
-
+Man kann den Refreshzähler erweitern.  
 Ein Schaltung dafür findet sich z.B. in [^3].
 
 Auch im Grundgerät D001 des KC85/4 werden aus den Signalen /rfsh, mreq und ab6 die Signale RF7 und RF8 gebildet, die den Refreshzähler des Z80 auf 9 Bit erweitern:
-![KC85/4, erweiterter Refresh](Bilder/KC85_RF7_RF8.jpg)
-Der erweiterte Refreshzähler wird nur für interne RAM-Bausteine genutzt.
 
-Am Modul 16M2164 steht weder der erweiterte Refreshzähler noch das Refresh-Signal zur Verfügung.
-Zumindest letzteres müsste separat zugeführt werden um den Refreshzähler zu erweitern.
-Ich wollte eine Lösung die mit den Signalen des 16M2164 auskommt.
+![KC85/4, erweiterter Refresh](Bilder/KC85_RF7_RF8.jpg)  
+
+Der erweiterte Refreshzähler steht leider nur den interne RAM-Bausteinen auf der Hauptplatine zur Verfügung.
+
+Am Modul 16M2164 steht weder der erweiterte Refreshzähler noch das Refresh-Signal zur Verfügung.  
+Zumindest letzteres müsste separat zugeführt werden um den Refreshzähler zu erweitern.  
+Daher wurde diese Lösung nicht weiter verfolgt.
+
 
 ## Variante D: dynamischer RAM
 Im Robotrontechnik-Forum ist ein Bild vom Innenaufbau des 16M2164 verlinkt [^4]. Mit etwas Geschick lassen sich die nötigen 16 Stück U2164 huckepack auf einer Aufsteckplatine plazieren und so die Schaltung des 16M2164 1:1 nachbilden.
 
-![M036 mit 16M2164-Ersatz aus 16 U2164](Bilder/M036_mit_dRAM.jpg){width=70% height=70%}
+![M036 mit 16M2164-Ersatz aus 16 U2164](Bilder/M036_mit_dRAM.jpg)
 
-Großer Nachteil dieser Lösung: sie benötigt zuviel Platz und passt nicht mehr in ein Modulgehäuse.
+Der große Nachteil dieser Lösung: sie benötigt zuviel Platz und passt nicht mehr in ein Modulgehäuse.
 Das M036 läßt sich so regulär nur an einem Adapter M007 betreiben.
 
 
@@ -95,22 +93,13 @@ Mit flachen Präzisions-Stiftleisten (z.B. BKL 10120536 von reichelt) läßt sic
 ## RAM-Disk für MicroDOS (D004) ##
 
 ### Referenzen und Links
-[^1]:
-Modul M036, Beschreibung, Bilder und Handbuch
-http://www.mpm-kc85.de/html/m036_segram128k.htm
+[^1]: Modul M036, Beschreibung, Bilder und Handbuch: [Modulbeschreibung auf mpm-kc85.de](http://www.mpm-kc85.de/html/m036_segram128k.htm)
 
-[^2]:
-Schaltkreisersatzplatine 16M2164
-https://www.sax.de/~zander/ --> Hobby --> KC85 --> Hardware --> 128K-Segmented-RAM-Modul (M036)
+[^2]: Schaltkreisersatzplatine 16M2164 [https://www.sax.de/~zander/ --> Hobby --> KC85 --> Hardware --> 128K-Segmented-RAM-Modul (M036)](https://www.sax.de/~zander/)
 
-[^3]:
-c't 1984, Heft 9 
-M. Hungershausen
-8-Bit-Refresh für Z80
+[^3]: c't 1984, Heft 9, M. Hungershausen, 8-Bit-Refresh für Z80
 
-[^4]:
-Bild vom Innenleben des 16M2164
-https://www.robotrontechnik.de/html/forum/thwb/showtopic.php?threadid=2115
+[^4]: Bild vom Innenleben des 16M2164 [Forum robotrontechnik.de](https://www.robotrontechnik.de/html/forum/thwb/showtopic.php?threadid=2115)
 
 Innenleben des U2164
 https://www.richis-lab.de/RAM02.htm
