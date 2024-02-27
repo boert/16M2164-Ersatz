@@ -11,13 +11,13 @@ Da einige Leiterplatte für dieses Modul im Umlauf sind, besteht seit geraumer Z
 Es gibt seit einigen Jahren eine Schaltkreisersatzplatine, die mit vier dRAMs in der Konfiguration 64k x 4 auskommt [^2].
 
 ---
-** dynamische Speicher **
+## dynamische Speicher
 
 Bei dynamischen Speichern wird die Information als Ladung in Kondensatoren abgebildet. Durch Leckströme verliert sich diese Ladung mit der Zeit und muß daher regelmäßig aufgefrischt werden (Refresh). Dies geschiet u.a. beim Aktivieren des /RAS-Signals. Der Hersteller gibt dabei an, in welchem Zeitraum jede ROW-Adresse einmal aktiviert werden muß. Normalerweise wird die angelegte ROW-Adresse vom Speichercontroller entsprechend hochgezählt. Bei einem geschickt adressierten Bildwiederholspeicher könnte man auf den Refresh verzichten, da dort durch regelmäßige Lesezugriffe die Information beim Lesen aufgefrischt wird.
 ---
 
 ---
-** dRAM-Größen und Refresh **
+## dRAM-Größen und Refresh
 
 Speicher-IC | Speichergröße | Refreshzyklen | Refreshzeit | Gehäuse
 ----------- | ------------: | ------------: | ----------: | -------
