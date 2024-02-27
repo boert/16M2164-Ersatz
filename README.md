@@ -28,8 +28,7 @@ MK4564      |  64k x 1      |  128          |  2 ms       | DIP16, PLCC18
 MK4164      |  64k x 1      |  256          |  4 ms       | DIP16
 HYB4164     |  64k x 1      |  256          |  4 ms       | DIP16
 MK41256     | 256k x 1      |  256          |  4 ms       | DIP16, PLCC18
-HYB51100    |   1M x 1      |  512          |  8 ms       | SOJ26/20
-            |               |               |             | 
+HYB51100    |   1M x 1      |  512          |  8 ms       | SOJ26
 4416        |  16k x 4      |  256          |  4 ms       | DIP18, PLCC18
 4464        |  64k x 4      |  256          |  4 ms       | DIP18, PLCC18
 µPD41464    |  64k x 4      |  256          |  4 ms       | DIP18, PLCC18
