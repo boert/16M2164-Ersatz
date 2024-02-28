@@ -82,19 +82,23 @@ Da es ein RAM ist, dürfen Datenleitungen problemlos miteinander vertauscht werd
 Damit wird das Routing auf der zweilagigen Platine erleichtert.
 
 Im Bild ist die Lösung zu sehen, die von der Grundfläche dem Original 16M2164 entspricht.
-![M036 mit 16M2164-Ersatz aus 16 U2164](Bilder/M036_mit_SRAM.jpg){width=70% height=70%}
+![M036 mit 16M2164-Ersatz aus 16 U2164](Bilder/M036_mit_SRAM.jpg)
 Mit flachen Präzisions-Stiftleisten läßt sich die Ersatzplatine so im Modulgehäuse unterbringen.
 
 # Test im M036 #
-Für den Test bietet sich das Programm RAMTEST3 an.
+Für einen Speichertest im KC85/4 bzw. KC85/5 bietet sich das Programm RAMTEST3 an.
+Um gezielt nur das Speichermodul M036 zu testen kann man mit `TESTM` den Modulschacht mit angeben, z.B. `TESTM 0C`.
+Anschließend werden die acht Segmente des M036 durchgetestet.
+
+![M036 Speichertest]{Bilder/M036_Speichertest.jpg}
 
 # Nutzung des Modul M036 #
 
-## Typestar ##
-
-## RAMDOS ##
+## Typestar + RAMDOS ##
 
 ## RAM-Disk für MicroDOS (D004) ##
+
+Der
 
 ### Referenzen und Links
 [^1]: Modul M036, Beschreibung, Bilder und Handbuch: [Modulbeschreibung auf mpm-kc85.de](http://www.mpm-kc85.de/html/m036_segram128k.htm)
