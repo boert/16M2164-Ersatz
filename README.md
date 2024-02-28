@@ -7,7 +7,7 @@ In Summe enthält der 16M2164 ein MegaBit bzw. 128 kByte Speicher.
 Zum Einzigen - mir bekannten Einsatz - kommt der Schaltkreis 16M2164 im Speichermodul M036 für den KC85 aus Mühlhausen [^1].  
 Um die unbestückten Leiterplatte, die für dieses Modul im Umlauf sind, nutzen zu können, benötigt man einen Ersatz für den 16M2164.
 
-Von U.Zander stammt die urspüngliche Idee einer Schaltkreisersatzplatine, die mit vier dRAMs in der Konfiguration 64k x 4 auskommt [^2].
+Von U. Zander stammt die urspüngliche Idee einer Schaltkreisersatzplatine, die nur mit vier dRAM-Schaltkreisen auskommt [^2].
 Diese Lösung funktioniert leider nicht perfekt.
 
 > [!Note]
@@ -37,52 +37,56 @@ Samsung     | KM41464A    |  64k x 4      |  256          |  4 ms       | DIP18,
 Siemens     | HYB514256   | 256k x 4      |  512          |  8 ms       | DIP20, SOJ26/20
 NEC         | µPD424400   |   1M x 4      | 1024          | 16 ms       | TSOP26, SOJ26/20
 
-Bei den hier verwendeten Speicher-IC der Größe 64k x 4 Bit wird ein 8 Bit Zähler benötigt, der bis 256 Refreshzyklen abdeckt.
-Die U880/Z80-CPU enthält nur einen 7 Bit Refreshzähler, der z.B. für die Bausteine mit 64 oder 128 Refreshzyklen ausreichend ist.
-Damit erhält die obere Hälfte des Speichers keinen definierten Refresh und verliert mit der Zeit ihren Inhalt.
+Die verwendeten Speicher-IC der Größe 64k x 4 Bit benötigen alle 256 Refreshzyklen. Damit muß der Zähler für den Refresh mindestens acht Bit breit sein.
+Die U880/Z80-CPU enthält nur einen 7 Bit-Refreshzähler, der für die Bausteine mit 64 oder 128 Refreshzyklen ausreichend ist.
+Die obere Hälfte des Speichers erhält keinen definierten Refresh und verliert mit der Zeit ihren Inhalt.
 
-Im Folgenden sind drei Lösungswege aufgezeigt:
+Im Folgenden sind drei Alternativen aufgezeigt:
+
 
 ## Variante R: Refresh
-Man kann den Refreshzähler erweitern.  
+Man könnte den Refreshzähler erweitern.  
 Ein Schaltung dafür findet sich z.B. in [^3].
 
-Auch im Grundgerät D001 des KC85/4 werden aus den Signalen /rfsh, mreq und ab6 die Signale RF7 und RF8 gebildet, die den Refreshzähler des Z80 auf 9 Bit erweitern:
+Auch im Grundgerät D001 (KC85/4) werden aus den Signalen /rfsh, mreq und ab6 die Signale RF7 und RF8 gebildet, die den Refreshzähler des Z80 auf 9 Bit erweitern:
 
 ![KC85/4, erweiterter Refresh](Bilder/KC85_RF7_RF8.jpg)  
 
 Der erweiterte Refreshzähler steht leider nur den interne RAM-Bausteinen auf der Hauptplatine zur Verfügung.
 
-Am Modul 16M2164 steht weder der erweiterte Refreshzähler noch das Refresh-Signal zur Verfügung.  
-Zumindest letzteres müsste separat zugeführt werden um den Refreshzähler zu erweitern.  
+Am Modul 16M2164 steht weder der erweiterte Refreshzähler noch das eigentliche Refresh-Signal zur Verfügung.  
+Zumindest letzteres müsste auf separatem Weg  zugeführt werden.  
 Daher wurde diese Lösung nicht weiter verfolgt.
 
 
 ## Variante D: dynamischer RAM
-Im Robotrontechnik-Forum ist ein Bild vom Innenaufbau des 16M2164 verlinkt [^4]. Mit etwas Geschick lassen sich die nötigen 16 Stück U2164 huckepack auf einer Aufsteckplatine plazieren und so die Schaltung des 16M2164 1:1 nachbilden.
+Im Robotrontechnik-Forum ist ein Bild vom Innenaufbau des 16M2164 verlinkt [^4]. Mit etwas Geschick lassen sich die 16 Stück U2164 auf einer Aufsteckplatine plazieren und so die Schaltung des 16M2164 1:1 nachbilden.
+Die erste Hälfte der Schaltkreise sitzt direkt auf der Adapterplatine. Die zweite Hälfte wird huckepack auf die bereits eingelöteten Schaltkreise gelötet und bis auf das /CAS-Signal parallel geschaltet.
+Die zweite Hälfte wird mit dem /CAS1-Signal aktiviert.
 
 ![M036 mit 16M2164-Ersatz aus 16 U2164](Bilder/M036_mit_dRAM.jpg)
 
 Der große Nachteil dieser Lösung: sie benötigt zuviel Platz und passt nicht mehr in ein Modulgehäuse.
-Das M036 läßt sich so regulär nur an einem Adapter M007 betreiben.
+Das M036 läßt sich so regulär nur offen an einem Adapter M007 betreiben.
 
 
 ## Variante S: statischer RAM
-Warum ersetzen wir nicht den dRAM durch einen einzelnen SRAM der Größe 128kx8 Bit?
+Warum ersetzen wir nicht die dRAM-Schaltkreise durch einen einzelnen SRAM der Größe 128kx8 Bit?
 Ein SRAM benötigt die Signale /CS, /WE und /OE sowie Daten und Adressen.
 Am Bestückungsplatz für das 16M2164 stehen die Signale /RAS, /CAS0 (unter Hälfte), /CAS1 (obere Hälfte) und /WE zur Verfügung. Die Adressenleitungen sind multiplext.
 
-Es ist eine Signalanpassung nötig und die Adressen benötigen einen Demultiplexer.
-Ein Latch, was mit dem invertierten /RAS-Signal angesteuert wird, speichert die eine Hälfte der Adressinformation. Die andere Hälfte wird direkt an den SRAM durchgereicht. Aus /CAS0 und /CAS1 wird das /CS-Signal gebildet. Aus dem Signal /WE wird noch das Signal /OE abgeleitet.
+Die Adressen müssen wieder demultiplext werden und für die Steuersignale ist eine Signalanpassung nötig.
+Ein Latch, was mit dem invertierten /RAS-Signal angesteuert wird, speichert die eine Hälfte der Adressinformation. Die andere Hälfte der Adresse wird direkt an den SRAM durchgereicht. Aus /CAS0 und /CAS1 wird das /CS-Signal gebildet. Aus dem Signal /WE wird noch das Signal /OE abgeleitet.
 
-Da es ein RAM ist, können Datenleitungen problemlos miteinander vertauscht werden. Ebenso kann man Adressleitungen tauschen, solange keine Sonderfunktionen realisiert sind.
-Damit wird das Routing auf einer zweilagigen Platine erleichtert.
+Da es ein RAM ist, dürfen Datenleitungen problemlos miteinander vertauscht werden. Ebenso kann man Adressleitungen tauschen, solange keine Sonderfunktionen realisiert sind.
+Damit wird das Routing auf der zweilagigen Platine erleichtert.
 
-Im Bild ist die Lösung zu sehen, die von der Grundfläche näher am Original 16M2164 ist.
+Im Bild ist die Lösung zu sehen, die von der Grundfläche dem Original 16M2164 entspricht.
 ![M036 mit 16M2164-Ersatz aus 16 U2164](Bilder/M036_mit_SRAM.jpg){width=70% height=70%}
-Mit flachen Präzisions-Stiftleisten (z.B. BKL 10120536 von reichelt) läßt sich die Ersatzplatine mit im Modulgehäuse unterbringen.
+Mit flachen Präzisions-Stiftleisten läßt sich die Ersatzplatine so im Modulgehäuse unterbringen.
 
 # Test im M036 #
+Für den Test bietet sich das Programm RAMTEST3 an.
 
 # Nutzung des Modul M036 #
 
