@@ -1,0 +1,3 @@
+## Variante R: Refresh
+
+...nicht weiter verfolgt, da das Refreshsignal fehlt...  
