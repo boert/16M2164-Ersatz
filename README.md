@@ -101,7 +101,7 @@ Anschließend werden die acht Segmente des M036 durchgetestet.
 Beim Start von MicroDOS werden vorhande RAM-Module als RAM-Disk (Laufwerk A:) initialisiert.
 Das funktioniert auch mit dem M036.
 
-![M036 als RAM-Disk](Bilder/M036_MicroDOS.png =20%x)
+![M036 als RAM-Disk](Bilder/M036_MicroDOS.png)
 
 
 ### Referenzen und Links
