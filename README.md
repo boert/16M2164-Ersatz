@@ -12,7 +12,7 @@ Um die unbestückten Leiterplatte, die für dieses Modul im Umlauf sind, nutzen 
 Von U. Zander stammt die urspüngliche Idee einer Schaltkreisersatzplatine, die nur mit vier dRAM-Schaltkreisen auskommt [^2].
 Diese Lösung funktioniert leider nicht perfekt.
 
-> [!Hinweis]
+> [!Note]
 > ### dynamischer Speicher
 > Bei dynamischen Speichern wird die Information als Ladung in Kondensatoren abgebildet. Durch Leckströme verliert sich diese Ladung mit der Zeit und muß daher regelmäßig aufgefrischt werden (Refresh). Dies geschiet u.a. beim Aktivieren des /RAS-Signals. Der Hersteller gibt dabei an, in welchem Zeitraum jede ROW-Adresse einmal aktiviert werden muß. Normalerweise wird die angelegte ROW-Adresse vom Speichercontroller entsprechend hochgezählt. Bei einem geschickt adressierten Bildwiederholspeicher könnte man auf den Refresh verzichten, da dort durch regelmäßige Lesezugriffe die Information beim Lesen aufgefrischt wird.
 
