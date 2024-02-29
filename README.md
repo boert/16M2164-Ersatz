@@ -88,18 +88,21 @@ Mit flachen Präzisions-Stiftleisten läßt sich die Ersatzplatine so im Modulge
 # Test im M036 #
 Für einen Speichertest im KC85/4 bzw. KC85/5 bietet sich das Programm RAMTEST3 an.
 Um gezielt nur das Speichermodul M036 zu testen kann man mit `TESTM` den Modulschacht mit angeben, z.B. `TESTM 0C`.
-Anschließend werden die acht Segmente des M036 durchgetestet.
+Anschließend werden die acht Segmente des M036 durchgetestet:
 
 ![M036 Speichertest](Bilder/M036_Speichertest.jpg)
 
 # Nutzung des Modul M036 #
-
 ## Typestar + RAMDOS ##
+
+Das Textverarbeitungssystemm Typestar bringt das RAMDOS-System mit [^5]. Damit wird das KC-CAOS um eine RAM-Disk erweitert.
+![RAMDOS](Bilder/RAMDOS1.jpg)
+![RAMDOS](Bilder/RAMDOS2.jpg)
 
 ## RAM-Disk für MicroDOS (D004) ##
 
-Beim Start von MicroDOS werden vorhande RAM-Module als RAM-Disk (Laufwerk A:) initialisiert.
-Das funktioniert auch mit dem M036.
+Beim Start von MicroDOS [^6] werden vorhande RAM-Module als RAM-Disk (Laufwerk A:) initialisiert.
+Das funktioniert auch mit dem Modul M036:
 
 ![M036 als RAM-Disk](Bilder/M036_MicroDOS.png)
 
@@ -113,5 +116,6 @@ Das funktioniert auch mit dem M036.
 
 [^4]: Bild vom Innenleben des 16M2164 [Forum robotrontechnik.de](https://www.robotrontechnik.de/html/forum/thwb/showtopic.php?threadid=2115)
 
-Innenleben des U2164
-https://www.richis-lab.de/RAM02.htm
+[^5]: Modul M033, Typestar: [Modulbeschreibung auf mpm-kc85.de](http://www.mpm-kc85.de/html/m033_typestar.htm)
+
+[^6]: MicroDOS:  [Beschreibung auf mpm-kc85.de](http://www.mpm-kc85.de/html/MicroDOS.htm)
