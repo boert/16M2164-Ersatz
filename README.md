@@ -90,7 +90,7 @@ Für einen Speichertest im KC85/4 bzw. KC85/5 bietet sich das Programm RAMTEST3 
 Um gezielt nur das Speichermodul M036 zu testen kann man mit `TESTM` den Modulschacht mit angeben, z.B. `TESTM 0C`.
 Anschließend werden die acht Segmente des M036 durchgetestet.
 
-![M036 Speichertest]{Bilder/M036_Speichertest.jpg "Speichertest"}
+![M036 Speichertest]{Bilder/M036_Speichertest.jpg}
 
 # Nutzung des Modul M036 #
 
@@ -101,7 +101,7 @@ Anschließend werden die acht Segmente des M036 durchgetestet.
 Beim Start von MicroDOS werden vorhande RAM-Module als RAM-Disk (Laufwerk A:) initialisiert.
 Das funktioniert auch mit dem M036.
 
-![M036 als RAM-Disk]{Bilder/M036_MicroDOS.png "MicroDOS mit RAM-Disk A"}
+![M036 als RAM-Disk]{Bilder/M036_MicroDOS.png =20%x}
 
 
 ### Referenzen und Links
