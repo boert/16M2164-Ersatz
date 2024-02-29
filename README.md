@@ -43,11 +43,11 @@ Die verwendeten Speicher-IC der Größe 64k x 4 Bit benötigen alle 256 Refreshz
 Die U880/Z80-CPU enthält nur einen 7 Bit-Refreshzähler, der für die Bausteine mit 64 oder 128 Refreshzyklen ausreichend ist.
 Die obere Hälfte des Speichers erhält keinen definierten Refresh und verliert mit der Zeit ihren Inhalt.
 
-Im Folgenden sind drei Alternativen aufgezeigt:
+Im Folgenden sind drei Alternativen aufgezeigt: Variante R, Variante D und Variante S.
 
 
 ## Variante R: Refresh
-Man könnte den Refreshzähler erweitern.  
+Der übliche Weg ist es, den Refreshzähler zu erweitern.  
 Ein Schaltung dafür findet sich z.B. in [^3].
 
 Auch im Grundgerät D001 (KC85/4) werden aus den Signalen /rfsh, mreq und ab6 die Signale RF7 und RF8 gebildet, die den Refreshzähler des Z80 auf 9 Bit erweitern:
@@ -56,20 +56,20 @@ Auch im Grundgerät D001 (KC85/4) werden aus den Signalen /rfsh, mreq und ab6 di
 
 Der erweiterte Refreshzähler steht leider nur den interne RAM-Bausteinen auf der Hauptplatine zur Verfügung.
 
-Am Modul 16M2164 steht weder der erweiterte Refreshzähler noch das eigentliche Refresh-Signal zur Verfügung.  
-Zumindest letzteres müsste auf separatem Weg  zugeführt werden.  
+Am Modul 16M2164 steht weder der erweiterte Refreshzähler, noch das eigentliche Refresh-Signal zur Verfügung.  
+Zumindest des Refresh-Signal müsste auf separatem Weg  zugeführt werden.  
 Daher wurde diese Lösung nicht weiter verfolgt.
 
 
 ## Variante D: dynamischer RAM
 Im Robotrontechnik-Forum ist ein Bild vom Innenaufbau des 16M2164 verlinkt [^4]. Mit etwas Geschick lassen sich die 16 Stück U2164 auf einer Aufsteckplatine plazieren und so die Schaltung des 16M2164 1:1 nachbilden.
 Die erste Hälfte der Schaltkreise sitzt direkt auf der Adapterplatine. Die zweite Hälfte wird huckepack auf die bereits eingelöteten Schaltkreise gelötet und bis auf das /CAS-Signal parallel geschaltet.
-Die zweite Hälfte wird mit dem /CAS1-Signal aktiviert.
+Die die untere Hälfte wird mit dem Signal /CAS0 aktiv. Die oberee Hälfte wird entsprechend mit dem /CAS1-Signal aktiv.
 
 ![M036 mit 16M2164-Ersatz aus 16 U2164](Bilder/M036_mit_dRAM.jpg)
 
-Der große Nachteil dieser Lösung: sie benötigt zuviel Platz und passt nicht mehr in ein Modulgehäuse.
-Das M036 läßt sich so regulär nur offen an einem Adapter M007 betreiben.
+Der große Nachteil dieser Lösung: sie benötigt zuviel Platz und passt nicht mehr in ein Modulgehäuse bzw. Modlschacht.
+Das M036 läßt sich so nur offen an einem Adapter M007 betreiben.
 
 
 ## Variante S: statischer RAM
