@@ -1,16 +1,18 @@
-# Ersatz für Hybridschaltkreis 16M2164 (1 MBit dynamischer RAM)
+# Ersatz für Hybridschaltkreis 16M2164
 
-Der Hybridschaltkreis 16M2164 von KWH (Keramische Werke Hermsdorf) scheint nur in sehr geringen Stückzahlen hergestellt worden zu sein. Er enthält 16 mal das Die (ein Stück vom Halbleiterwafer) des Schaltkreises U2164 sowie einige Stützkondensatoren auf einem Keramiksubstrat.  
-Der U2164 ist ein dynamischer RAM mit 64kBit.  
+Der 16M2164 von KWH (Keramische Werke Hermsdorf) ist ein Speicherschaltkreis in Hybridbauweise.
+Er ist vermutlich nur in sehr geringen Stückzahlen hergestellt worden.
+Er enthält 16 mal das Die (ein Stück vom Halbleiterwafer) des Schaltkreises U2164 sowie einige Stützkondensatoren auf einem Keramiksubstrat.  
+Der U2164 ist ein dynamischer RAM mit 64kBit.
 In Summe enthält der 16M2164 ein MegaBit bzw. 128 kByte Speicher.
 
-Zum Einzigen - mir bekannten Einsatz - kommt der Schaltkreis 16M2164 im Speichermodul M036 für den KC85 aus Mühlhausen [^1].  
-Um die unbestückten Leiterplatte, die für dieses Modul im Umlauf sind, nutzen zu können, benötigt man einen Ersatz für den 16M2164.
+Zum Einsatz kommt der Schaltkreis 16M2164 im Speichermodul M036 für den KC85 aus Mühlhausen [^1].  
+Um die unbestückten Leiterplatte, die für dieses Modul im Umlauf sind, nutzen zu können, benötigt man i.d.R. einen Ersatz für den 16M2164.
 
 Von U. Zander stammt die urspüngliche Idee einer Schaltkreisersatzplatine, die nur mit vier dRAM-Schaltkreisen auskommt [^2].
 Diese Lösung funktioniert leider nicht perfekt.
 
-> [!Note]
+> [!Hinweis]
 > ### dynamischer Speicher
 > Bei dynamischen Speichern wird die Information als Ladung in Kondensatoren abgebildet. Durch Leckströme verliert sich diese Ladung mit der Zeit und muß daher regelmäßig aufgefrischt werden (Refresh). Dies geschiet u.a. beim Aktivieren des /RAS-Signals. Der Hersteller gibt dabei an, in welchem Zeitraum jede ROW-Adresse einmal aktiviert werden muß. Normalerweise wird die angelegte ROW-Adresse vom Speichercontroller entsprechend hochgezählt. Bei einem geschickt adressierten Bildwiederholspeicher könnte man auf den Refresh verzichten, da dort durch regelmäßige Lesezugriffe die Information beim Lesen aufgefrischt wird.
 
