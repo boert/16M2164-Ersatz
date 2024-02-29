@@ -95,7 +95,7 @@ Anschließend werden die acht Segmente des M036 durchgetestet:
 # Nutzung des Modul M036 #
 ## Typestar + RAMDOS ##
 
-Das Textverarbeitungssystemm Typestar bringt das RAMDOS-System mit [^5]. Damit wird das KC-CAOS um eine RAM-Disk erweitert.
+Das Textverarbeitungssystemm Typestar[^5] bringt das RAMDOS-System mit. Damit wird das KC-CAOS um eine RAM-Disk erweitert.
 ![RAMDOS](Bilder/RAMDOS1.jpg)
 ![RAMDOS](Bilder/RAMDOS2.jpg)
 
