@@ -7,15 +7,15 @@ Dort wird versehentlich ein Teil des Speichers nicht aufgefrischt, was sich dies
 
 ## Parameter
 
-Die Voreinstellungen sind:
-Speichermodul M036 im Modulschacht '0C'
-Speichersegment 7, Steuerwort '1F'
+Die Voreinstellungen sind:  
+Speichermodul M036 im Modulschacht '0C'  
+Speichersegment 7, Steuerwort '1F'  
 
 Ein anderer Modulschacht und ein anderes Modulsteuerwort können als Parameter mitgegeben werden.
 
 ## Programmablauf
 
-Der zu testende RAM-Bereich liegt von 4000h bis 5FFFh
+Der zu testende RAM-Bereich liegt von 4000h bis 5FFFh.
 Der interne RAM4 wird für den Test ausgeschaltet.
 
 Der Speicherbereich wird mit einem Muster gefüllt und über dieses Muster wird eine einfache Prüfsumme gebildet (SUM16).
@@ -32,20 +32,20 @@ Nach Ablauf der längsten Wartezeit (1000 s) oder einem Tastendruck wird das Pro
 
 ## Beispiel
 
-Im dargestellten Beispiel betrug die Raumtemperatur ca. 21° C.
-Nach 18 Sekunden sind alle Speicherstellen noch richtig:
+Im dargestellten Beispiel betrug die Raumtemperatur ca. 21° C.  
+Nach 18 Sekunden sind alle Speicherstellen noch richtig:  
 ![Refreshtest nach 18 Sekunden](Bilder/0018.jpg)
 
-Nach ca. 30 Sekunden kippt die erste Speicherstelle:
+Nach ca. 30 Sekunden kippt die erste Speicherstelle:  
 ![Refreshtest nach 30 Sekunden](Bilder/0030.jpg)
 
-Nach ca. 60 Sekunden ohne Refresh lässt sich ein Muster erahnen:
+Nach ca. 60 Sekunden ohne Refresh lässt sich ein Muster erahnen:  
 ![Refreshtest nach 60 Sekunden](Bilder/0060.jpg)
 
-Die letzt Speicherstelle, die noch nicht gekippt ist, erkennt man nach ca. 180 Sekunden.
+Die letzt Speicherstelle, die noch nicht gekippt ist, erkennt man nach ca. 180 Sekunden:  
 ![Refreshtest nach 180 Sekunden](Bilder/0180.jpg)
 
-Nach ca. 200 Sekunden ohne Refresh sind alle Speicherstellen komplett im Ausgangszustand:lässt sich ein Muster erahnen:
+Nach ca. 200 Sekunden ohne Refresh sind alle Speicherstellen komplett im Ausgangszustand:  
 ![Refreshtest nach 200 Sekunden](Bilder/0200.jpg)
 
 
