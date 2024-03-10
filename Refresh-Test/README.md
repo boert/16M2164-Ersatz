@@ -33,8 +33,8 @@ Nach Ablauf der längsten Wartezeit (1000 s) oder einem Tastendruck wird das Pro
 ## Beispiel
 
 Im dargestellten Beispiel betrug die Raumtemperatur ca. 21° C.  
-Nach 18 Sekunden sind alle Speicherstellen noch richtig:  
-![Refreshtest nach 18 Sekunden](Bilder/0018.jpg)
+Nach 16 Sekunden sind alle Speicherstellen noch richtig:  
+![Refreshtest nach 16 Sekunden](Bilder/0016.jpg)
 
 Nach ca. 30 Sekunden kippt die erste Speicherstelle:  
 ![Refreshtest nach 30 Sekunden](Bilder/0030.jpg)
