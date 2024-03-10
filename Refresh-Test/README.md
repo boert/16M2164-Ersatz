@@ -46,7 +46,7 @@ Die letzt Speicherstelle, die noch nicht gekippt ist, erkennt man nach ca. 180 S
 ![Refreshtest nach 180 Sekunden](Bilder/0180.jpg)
 
 Nach ca. 200 Sekunden ohne Refresh sind alle Speicherstellen komplett im Ausgangszustand:  
-![Refreshtest nach 200 Sekunden](Bilder/0200.jpg)
+![Refreshtest nach 200 Sekunden](Bilder/0200.jpg)  
 Die einfache Prüfsumme entspricht dann zufällig wieder dem zu Beginn gebildeten Referenzwert. 
 
 
