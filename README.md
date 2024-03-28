@@ -68,7 +68,7 @@ Die die untere Hälfte wird mit dem Signal /CAS0 aktiv. Die oberee Hälfte wird 
 
 ![M036 mit 16M2164-Ersatz aus 16 U2164](Bilder/M036_mit_dRAM.jpg)
 
-Der große Nachteil dieser Lösung: sie benötigt zuviel Platz und passt nicht mehr in ein Modulgehäuse bzw. Modlschacht.
+Der große Nachteil dieser Lösung: sie benötigt zuviel Platz und passt nicht mehr in ein Modulgehäuse bzw. Modulschacht.
 Das M036 läßt sich so nur offen an einem Adapter M007 betreiben.
 
 
