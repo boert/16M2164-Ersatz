@@ -2,7 +2,7 @@
 
 Der 16M2164 von KWH (Keramische Werke Hermsdorf) ist ein Speicherschaltkreis in Hybridbauweise.
 Er ist vermutlich nur in sehr geringen Stückzahlen hergestellt worden.
-Er enthält 16 mal das Die (ein Stück vom Halbleiterwafer) des Schaltkreises U2164 sowie einige Stützkondensatoren auf einem Keramiksubstrat.  
+Der Hybridschaltkreis enthält 16 mal das Die (ein Stück vom Halbleiterwafer) des Schaltkreises U2164 sowie einige Stützkondensatoren auf einem Keramiksubstrat.  
 Der U2164 ist ein dynamischer RAM mit 64kBit.
 In Summe enthält der 16M2164 ein MegaBit bzw. 128 kByte Speicher.
 
@@ -43,7 +43,7 @@ Die verwendeten Speicher-IC der Größe 64k x 4 Bit benötigen alle 256 Refreshz
 Die U880/Z80-CPU enthält nur einen 7 Bit-Refreshzähler, der für die Bausteine mit 64 oder 128 Refreshzyklen ausreichend ist.
 Die obere Hälfte des Speichers erhält keinen definierten Refresh und verliert mit der Zeit ihren Inhalt.
 
-Im Folgenden sind drei Alternativen aufgezeigt: Variante R, Variante D und Variante S.
+Im Folgenden sind drei Wege aufgezeigt, um den fehlenden Speicher zu ersetzen: Variante R, Variante D und Variante S.
 
 
 ## Variante R: Refresh
@@ -57,18 +57,18 @@ Auch im Grundgerät D001 (KC85/4) werden aus den Signalen /rfsh, mreq und ab6 di
 Der erweiterte Refreshzähler steht leider nur den interne RAM-Bausteinen auf der Hauptplatine zur Verfügung.
 
 Am Modul 16M2164 steht weder der erweiterte Refreshzähler, noch das eigentliche Refresh-Signal zur Verfügung.  
-Zumindest des Refresh-Signal müsste auf separatem Weg  zugeführt werden.  
+Zumindest des Refresh-Signal müsste auf separatem Weg zugeführt werden.  
 Daher wurde diese Lösung nicht weiter verfolgt.
 
 
 ## Variante D: dynamischer RAM
 Im Robotrontechnik-Forum ist ein Bild vom Innenaufbau des 16M2164 verlinkt [^4]. Mit etwas Geschick lassen sich die 16 Stück U2164 auf einer Aufsteckplatine plazieren und so die Schaltung des 16M2164 1:1 nachbilden.
 Die erste Hälfte der Schaltkreise sitzt direkt auf der Adapterplatine. Die zweite Hälfte wird huckepack auf die bereits eingelöteten Schaltkreise gelötet und bis auf das /CAS-Signal parallel geschaltet.
-Die die untere Hälfte wird mit dem Signal /CAS0 aktiv. Die oberee Hälfte wird entsprechend mit dem /CAS1-Signal aktiv.
+Die die untere Hälfte wird mit dem Signal /CAS0 aktiv. Die obere Hälfte wird entsprechend mit dem /CAS1-Signal aktiv.
 
 ![M036 mit 16M2164-Ersatz aus 16 U2164](Bilder/M036_mit_dRAM.jpg)
 
-Der große Nachteil dieser Lösung: sie benötigt zuviel Platz und passt nicht mehr in ein Modulgehäuse bzw. Modulschacht.
+Der große Nachteil dieser Lösung: sie benötigt zuviel Platz und passt nicht mehr in ein Modulgehäuse bzw. den Modulschacht.
 Das M036 läßt sich so nur offen an einem Adapter M007 betreiben.
 
 
