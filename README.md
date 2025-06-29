@@ -85,7 +85,9 @@ Damit wird das Routing auf der zweilagigen Platine erleichtert.
 
 Im Bild ist die Lösung zu sehen, die von der Grundfläche dem Original 16M2164 entspricht.
 ![M036 mit 16M2164-Ersatz aus 16 U2164](Bilder/M036_mit_SRAM.jpg)
-Mit flachen Präzisions-Stiftleisten läßt sich die Ersatzplatine so im Modulgehäuse unterbringen.
+Mit flachen Präzisions-Stiftleisten (und ohne IC-Sockel für den SRAM-Chip) läßt sich die Ersatzplatine im Modulgehäuse unterbringen.
+Der IC-Sockel im Bild diente für den Test verschiedener SRAM-Schaltkreise.
+
 
 # Test im M036 #
 Für einen Speichertest im KC85/4 bzw. KC85/5 bietet sich das Programm RAMTEST3 an.
