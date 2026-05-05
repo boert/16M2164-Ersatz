@@ -25,7 +25,8 @@ Mostek      | MK4096      |   4k x 1      |   64          |  2 ms       | DIP16
 Mostek      | MK4116      |  16k x 1      |  128          |  2 ms       | DIP16
 NEC         | µPD4164     |  64k x 1      |  128          |  2 ms       | DIP16
 Mostek      | MK4564      |  64k x 1      |  128          |  2 ms       | DIP16, PLCC18
-Mostek      | MK4164      |  64k x 1      |  256          |  4 ms       | DIP16
+Mostek      | MK4164      |  64k x 1      |  128          |  2 ms       | DIP16
+National    | NMC4164     |  64k x 1      |  256          |  4 ms       | DIP16
 Siemens     | HYB4164     |  64k x 1      |  256          |  4 ms       | DIP16
 Mostek      | MK41256     | 256k x 1      |  256          |  4 ms       | DIP16, PLCC18
 Siemens     | HYB51100    |   1M x 1      |  512          |  8 ms       | SOJ26
@@ -38,6 +39,9 @@ Mitsubishi  | M5M4464A    |  64k x 4      |  256          |  4 ms       | DIP18,
 Samsung     | KM41464A    |  64k x 4      |  256          |  4 ms       | DIP18, PLCC18, ZIP20
 Siemens     | HYB514256   | 256k x 4      |  512          |  8 ms       | DIP20, SOJ26/20
 NEC         | µPD424400   |   1M x 4      | 1024          | 16 ms       | TSOP26, SOJ26/20
+
+Eine Vergleichstabelle von 64k-Bit dRAM-Chips findet sich unter [^7].
+
 
 Die verwendeten Speicher-IC der Größe 64k x 4 Bit benötigen alle 256 Refreshzyklen. Damit muß der Zähler für den Refresh mindestens acht Bit breit sein.
 Die U880/Z80-CPU enthält nur einen 7 Bit-Refreshzähler, der für die Bausteine mit 64 oder 128 Refreshzyklen ausreichend ist.
@@ -123,3 +127,5 @@ Das funktioniert auch mit dem Modul M036:
 [^5]: Modul M033, Typestar: [Modulbeschreibung auf mpm-kc85.de](http://www.mpm-kc85.de/html/m033_typestar.htm)
 
 [^6]: MicroDOS:  [Beschreibung auf mpm-kc85.de](http://www.mpm-kc85.de/html/MicroDOS.htm)
+
+[^7]: Vergleichstabelle 64 kBit dRAM-Chips: [Examples of 4164 class RAM chips](https://www.minuszerodegrees.net/memory/4164.htm)
